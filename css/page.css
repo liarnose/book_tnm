@@ -71,6 +71,7 @@ html {
   widows: 1;
 }
 
+
 @page{
   size: 188mm 263mm;
   
@@ -95,8 +96,8 @@ html {
 
 @-epubx-page-template {
   blockquote {
-    -epubx-flow-into: sidenote;
-    -epubx-flow-options: exclusive;
+/*    -epubx-flow-into: sidenote;
+    -epubx-flow-options: exclusive;*/
   }
   
   .header_book-title {
@@ -225,9 +226,13 @@ html {
   font-style: normal;
 }
 .text blockquote{
+  position: absolute;
   font-family: 'gothic';
   font-size: 2.75mm;
   line-height: 4mm;
+  width:28mm;
+  margin-left: -32mm;
+  top: auto;
 }
 .text  blockquote dt {
   font-weight: bold;
