@@ -128,6 +128,7 @@ html {
   }
   
   @-epubx-page-master {
+
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
       top: 20mm;
@@ -169,7 +170,7 @@ html {
 .text h1 {
   font-size: 6mm;
   line-height: 12mm;
-  margin-left: 5mm;
+  margin-bottom: 5mm;
   
   padding-top: 1mm;
   background: #ccc;
@@ -181,13 +182,8 @@ html {
 .text h2 {
   font-size: 4mm;
   line-height: 6mm;
-  margin-left: 5mm;
-  
-  position: relative;
-  top: -18mm;
-  padding-top: 18mm;
-  margin-bottom: -18mm;
   background: #ccc;
+  margin-bottom: 5mm;
 }
 
 .text h1 {
@@ -202,11 +198,11 @@ html {
 }
 
 .text > p {
-  margin-left: 5mm;
+  margin-bottom: 5mm;
 }
 
 .text > dl {
-  margin-left: 5mm;
+  margin-bottom: 5mm;
 }
 .text > dl dt {
   float: left;
