@@ -56,6 +56,9 @@
   box-sizing: border-box;
 }
 
+q::before,q::after {
+  content: '';
+}
 
 /* ----------------------------------------
    ページ
@@ -100,6 +103,10 @@ html {
     -epubx-flow-options: exclusive;*/
   }
   
+  .large-header {
+    -epubx-flow-into: large-header;
+  }
+  
   .header_book-title {
     -epubx-flow-into: header-right; 
     -epubx-flow-options: static;
@@ -132,19 +139,66 @@ html {
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
       top: 20mm;
-      left: 52mm;
+      left: 18mm;
       right: 20mm;
+      height: 68mm;
+      -epubx-flow-from: large-header;
+    } 
+
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 94mm;
+      right: 20mm;
+      width: 54mm;
+      bottom: 20mm;
+      overflow: visible;
+      -epubx-flow-from: body;
+    }
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 94mm;
+      left: 52mm;
+      width: 54mm;
       bottom: 20mm;
       overflow: visible;
       -epubx-flow-from: body;
     }
     @-epubx-partition {
     	-epub-writing-mode: horizontal-tb;
+      top: 8mm;
+      right: 15.5mm;
+      height: 2mm;
+      -epubx-flow-from: header-right;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      right: 0mm;
+      bottom: 7mm;
+      -epubx-flow-from: page-number;
+      -epubx-wrap-flow: auto;
+
+    }
+  }
+  
+    @-epubx-page-master {
+
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
       top: 20mm;
-      left: 18mm;
-      width: 28mm;
+      right: 20mm;
+      width: 54mm;
       bottom: 20mm;
-      -epubx-flow-from: sidenote;
+      overflow: visible;
+      -epubx-flow-from: body;
+    }
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 20mm;
+      left: 52mm;
+      width: 54mm;
+      bottom: 20mm;
+      overflow: visible;
+      -epubx-flow-from: body;
     }
     @-epubx-partition {
     	-epub-writing-mode: horizontal-tb;
@@ -167,19 +221,52 @@ html {
 /* ----------------------------------------
    個別パーツ
    ---------------------------------------- */
-.text h1 {
-  font-size: 6mm;
-  line-height: 12mm;
-  margin-bottom: 5mm;
+.text {
+}
+.large-header{
+  display: block;
+  width: 100%;
+  height: 100%;
   
-  padding-top: 1mm;
-  background: #ccc;
-  border: solid 0.2mm #000;
-  border-top-width: 1mm;
-  border-bottom-width: 1mm;
+  background-color: #666;
+  color: #fff;
+}
+.large-header h1 {
+  padding-top: 14mm;
+  font-family: 'gothic';
+  font-weight: bold;
+  font-size: 11.5mm;
+  text-align: center;
+}
+.large-header div {
+  position: absolute;
+  right: 5mm;
+  bottom: 5mm;
+  height: 30mm;
+  width: 60mm;
+
+  background-color: #fff;
+  border-radius: 2mm;
+  color: #000;
+  padding: 2mm;
+  border: 1mm solid #999;
+  font-family: 'gothic';
+}
+
+.large-header cite {
+  position: absolute;
+  right: 2mm;
+  bottom: 2mm;
+
+  font-style: normal;
+}
+
+.large-header cite::before {
+  content: '────'
 }
 
 .text h2 {
+
   font-size: 4mm;
   line-height: 6mm;
   background: #ccc;
