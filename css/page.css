@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 /* ----------------------------------------
    サイフィクリプレイ風レイアウト
@@ -6,16 +6,16 @@
 
 /* @page内で使えないのでメモ用に定数を書いてあるだけ
 :root {
-  --page-width: 108mm;
-  --page-height: 174mm;
+  --page-width: 182mm;
+  --page-height: 257mm;
 
   --cuttingMargin: 3mm;
 
-  --page-margin-top: 15mm;
-  --page-margin-bottom: 15mm;
-  --page-margin-inside: 15mm;
-  --page-margin-outside: 10mm;
-  --page-margin-sides: 12.5mm;
+  --page-margin-top: 20mm;
+  --page-margin-bottom: 20mm;
+  --page-margin-inside: 20mm;
+  --page-margin-outside: 17mm;
+  --page-margin-sides: 18.5mm;
 }
 */
 
@@ -62,17 +62,17 @@
    ---------------------------------------- */
 html {
   font-family: 'mincho';
-  font-size: 3mm;
-  line-height: 5mm;
+  font-size: 2.75mm;
+  line-height: 4mm;
   vertical-align: middle;
   
-  writing-mode: vertical-rl;
+  writing-mode: horizontal-tb;
   orphans: 1;
   widows: 1;
 }
 
 @page{
-  size: 114mm 180mm;
+  size: 188mm 263mm;
   
   counter-increment: page;
 }
@@ -128,20 +128,20 @@ html {
   
   @-epubx-page-master {
     @-epubx-partition  {
-    	-epub-writing-mode: vertical-rl;
-      top: 18mm;
-      left: 15.5mm;
-      right: 15.5mm;
-      bottom: 48mm;
+    	-epub-writing-mode: horizontal-tb;
+      top: 20mm;
+      left: 52mm;
+      right: 20mm;
+      bottom: 20mm;
       overflow: visible;
       -epubx-flow-from: body;
     }
     @-epubx-partition {
-    	-epub-writing-mode: vertical-rl;
-      top: 138mm;
-      left: 15.5mm;
-      right: 15.5mm;
-      bottom: 18mm;
+    	-epub-writing-mode: horizontal-tb;
+      top: 20mm;
+      left: 18mm;
+      width: 28mm;
+      bottom: 20mm;
       -epubx-flow-from: sidenote;
     }
     @-epubx-partition {
