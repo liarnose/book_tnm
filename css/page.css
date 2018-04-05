@@ -148,7 +148,8 @@ html {
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
       top: 94mm;
-      right: 20mm;
+      left: 52mm;
+      padding-left: 62mm;
       width: 54mm;
       bottom: 20mm;
       overflow: visible;
@@ -185,7 +186,8 @@ html {
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
       top: 20mm;
-      right: 20mm;
+      left: 52mm;
+      padding-left: 58mm;
       width: 54mm;
       bottom: 20mm;
       overflow: visible;
@@ -265,8 +267,11 @@ html {
   content: '────'
 }
 
-.text h2 {
-
+.text h2 {  
+/*
+  width: 116mm;
+  height: 6mm;  
+*/
   font-size: 4mm;
   line-height: 6mm;
   background: #ccc;
@@ -280,9 +285,11 @@ html {
   counter-increment:sub-chapter 1;
   content: counter(sub-chapter,cjk-ideographic) '、';
 }
+/*
 .text h2::after{
   content: ' ───────────';
 }
+*/
 
 .text > p {
   margin-bottom: 5mm;
@@ -314,7 +321,7 @@ html {
   font-size: 2.75mm;
   line-height: 4mm;
   width:28mm;
-  margin-left: -32mm;
+  left: -32mm;
   top: auto;
 }
 .text  blockquote dt {
