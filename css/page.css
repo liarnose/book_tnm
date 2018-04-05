@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+/* ----------------------------------------
+   サイフィクリプレイ風レイアウト
+   ---------------------------------------- */
+
+/* @page内で使えないのでメモ用に定数を書いてあるだけ
+:root {
+  --page-width: 108mm;
+  --page-height: 174mm;
+
+  --cuttingMargin: 3mm;
+
+  --page-margin-top: 15mm;
+  --page-margin-bottom: 15mm;
+  --page-margin-inside: 15mm;
+  --page-margin-outside: 10mm;
+  --page-margin-sides: 12.5mm;
+}
+*/
+
+/* ----------------------------------------
+   フォント読み込み
+   ---------------------------------------- */
+@font-face {
+  font-family: 'gothic';
+  font-weight: normal;
+  src:
+    url('../font/SourceHanSans-Normal.otf') format('opentype');
+}
+@font-face {
+  font-family: 'gothic';
+  font-weight: bold;
+  src:
+    url('../font/SourceHanSans-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'mincho';
+  font-weight: normal;
+  src:
+    url('../font/SourceHanSerif-Medium.otf') format('opentype');
+}
+@font-face {
+  font-family: 'mincho';
+  font-weight: bold;
+  src:
+    url('../font/SourceHanSerif-Heavy.otf') format('opentype');
+}
+
+/* ----------------------------------------
+   リセット
+   ---------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ----------------------------------------
+   ページ
+   ---------------------------------------- */
+html {
+  font-family: 'mincho';
+  font-size: 3mm;
+  line-height: 5mm;
+  vertical-align: middle;
+  
+  writing-mode: vertical-rl;
+  orphans: 1;
+  widows: 1;
+}
+
+@page{
+  size: 114mm 180mm;
+  
+  counter-increment: page;
+}
+
+@page: first {
+  counter-reset: page 0;
+}
+/*
+@page:left {
+  margin-left: 13mm;
+  margin-right: 18mm;
+}
+
+@page:right {
+  margin-left: 18mm;
+  margin-right: 13mm;
+}
+*/
+ 
+
+@-epubx-page-template {
+  blockquote {
+    -epubx-flow-into: sidenote;
+    -epubx-flow-options: exclusive;
+  }
+  
+  .header_book-title {
+    -epubx-flow-into: header-right; 
+    -epubx-flow-options: static;
+    
+    writing-mode: horizontal-tb;
+    font-size: 2mm;
+    line-height: 2mm;
+    font-family: 'gothic';
+    text-align: right;
+  }
+  
+  #footer_page-number {
+    -epubx-flow-into: page-number;
+    -epubx-flow-options: static;
+    
+    writing-mode: horizontal-tb;
+    font-size: 2.5mm;
+    text-align: right;
+    
+    width: 18mm;
+    border-bottom: solid 0.1mm #000;
+    padding-right: 12mm;
+  }
+  #footer_page-number::after {
+    content: counter(page);
+  }
+  
+  @-epubx-page-master {
+    @-epubx-partition  {
+    	-epub-writing-mode: vertical-rl;
+      top: 18mm;
+      left: 15.5mm;
+      right: 15.5mm;
+      bottom: 48mm;
+      overflow: visible;
+      -epubx-flow-from: body;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: vertical-rl;
+      top: 138mm;
+      left: 15.5mm;
+      right: 15.5mm;
+      bottom: 18mm;
+      -epubx-flow-from: sidenote;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      top: 8mm;
+      right: 15.5mm;
+      height: 2mm;
+      -epubx-flow-from: header-right;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      right: 0mm;
+      bottom: 7mm;
+      -epubx-flow-from: page-number;
+      -epubx-wrap-flow: auto;
+
+    }
+  }
+}
+
+/* ----------------------------------------
+   個別パーツ
+   ---------------------------------------- */
+.text h1 {
+  font-size: 6mm;
+  line-height: 12mm;
+  margin-left: 5mm;
+  
+  padding-top: 1mm;
+  background: #ccc;
+  border: solid 0.2mm #000;
+  border-top-width: 1mm;
+  border-bottom-width: 1mm;
+}
+
+.text h2 {
+  font-size: 4mm;
+  line-height: 6mm;
+  margin-left: 5mm;
+  
+  position: relative;
+  top: -18mm;
+  padding-top: 18mm;
+  margin-bottom: -18mm;
+  background: #ccc;
+}
+
+.text h1 {
+  counter-reset: sub-chapter;
+}
+.text h2::before{
+  counter-increment:sub-chapter 1;
+  content: counter(sub-chapter,cjk-ideographic) '、';
+}
+.text h2::after{
+  content: ' ───────────';
+}
+
+.text > p {
+  margin-left: 5mm;
+}
+
+.text > dl {
+  margin-left: 5mm;
+}
+.text > dl dt {
+  float: left;
+  font-family: 'gothic';
+  font-weight: bold;
+  clear: left;
+}
+.text > dl dt::after {
+  content: '：';
+}
+.text > dl dd {
+}
+
+.text em {
+  font-family: 'gothic';
+  font-weight: bold;
+  font-style: normal;
+}
+.text blockquote{
+  font-family: 'gothic';
+  font-size: 2.75mm;
+  line-height: 4mm;
+}
+.text  blockquote dt {
+  font-weight: bold;
+}
