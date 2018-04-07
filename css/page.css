@@ -187,7 +187,6 @@ html {
     text-align: right;
     
     width: 18mm;
-    padding-right: 12mm;
   }
   #footer_page-number::after {
     content: counter(page);
@@ -198,8 +197,8 @@ html {
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
       top: 20mm;
-      left: 18mm;
-      right: 18mm;
+      left: 21mm;
+      right: 21mm;
       height: 68mm;
       -epubx-flow-from: large-header;
     } 
@@ -207,8 +206,8 @@ html {
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
       top: 94mm;
-      left: 52mm;
-      padding-left: 64mm;
+      left: 55mm;
+      padding-left: 58mm;
       width: 54mm;
       bottom: 20mm;
       overflow: visible;
@@ -217,7 +216,7 @@ html {
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
       top: 94mm;
-      left: 52mm;
+      left: 55mm;
       width: 54mm;
       bottom: 20mm;
       overflow: visible;
@@ -225,7 +224,7 @@ html {
     }
     @-epubx-partition {
     	-epub-writing-mode: horizontal-tb;
-      top: 6mm;
+      top: 9mm;
       left: 0mm;
       width: 100%;
       height: 4mm;
@@ -240,7 +239,7 @@ html {
     	-epub-writing-mode: horizontal-tb;
       top: 20mm;
       bottom: 20mm;
-      left: 6mm;
+      left: 9mm;
       width: 6mm;
       overflow: visible;
       
@@ -248,8 +247,8 @@ html {
     }
     @-epubx-partition {
     	-epub-writing-mode: horizontal-tb;
-      right: 0mm;
-      bottom: 7mm;
+      right: 21mm;
+      bottom: 12mm;
       -epubx-flow-from: page-number;
       -epubx-wrap-flow: auto;
 
@@ -286,8 +285,8 @@ html {
     }
     @-epubx-partition {
     	-epub-writing-mode: horizontal-tb;
-      right: 0mm;
-      bottom: 7mm;
+      right: 21mm;
+      bottom: 12mm;
       -epubx-flow-from: page-number;
       -epubx-wrap-flow: auto;
 
@@ -396,7 +395,7 @@ z
   font-size: 2.75mm;
   line-height: 4mm;
   width:28mm;
-  left: -32mm;
+  left: -34mm;
   top: auto;
 }
 .text  blockquote dt {
