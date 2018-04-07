@@ -132,6 +132,51 @@ html {
     transform: scale(1.8, 1);
   }
   
+  .header_subtitle {
+    -epubx-flow-into: page-outside; 
+    -epubx-flow-options: static;
+    
+    writing-mode: vertical-rl;
+    font-size: 4mm;
+    height: 92mm; 
+    width: 6mm;
+    text-align: center;
+    font-family: 'header-logo';
+    padding-right: 1mm;
+    
+    border-left: 0.2mm solid #000;
+    border-right: 0.2mm solid #000;
+    
+    transform-origin: top left;
+    transform: scale(1, 1.5)
+  }
+  
+  .header_subtitle::before {
+    content: '';
+    position: absolute;
+    height: 1mm;
+    width: 3.5mm;
+    border: 0.2mm solid #000;
+    
+    transform-origin: top right;
+    transform: skewY(-30deg);
+    filter: drop-shadow(0 3mm) drop-shadow(0 6mm);
+  }
+  
+  .header_subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0mm;
+    right: 1mm;
+    height: 1mm;
+    width: 3.5mm;
+    border: 0.2mm solid #000;
+
+    transform-origin: bottom left;
+    transform: skewY(-30deg);
+    filter: drop-shadow(0 -3mm) drop-shadow(0 -6mm);
+  }
+  
   #footer_page-number {
     -epubx-flow-into: page-number;
     -epubx-flow-options: static;
@@ -154,7 +199,7 @@ html {
     	-epub-writing-mode: horizontal-tb;
       top: 20mm;
       left: 18mm;
-      right: 20mm;
+      right: 18mm;
       height: 68mm;
       -epubx-flow-from: large-header;
     } 
@@ -163,7 +208,7 @@ html {
     	-epub-writing-mode: horizontal-tb;
       top: 94mm;
       left: 52mm;
-      padding-left: 62mm;
+      padding-left: 64mm;
       width: 54mm;
       bottom: 20mm;
       overflow: visible;
@@ -187,9 +232,19 @@ html {
       padding: 0.5mm 18mm;
       
       border-top: 1mm solid #000;
-      border-bottom: 0.4mm solid #000;
+      border-bottom: 0.2mm solid #000;
       
       -epubx-flow-from: page-header;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      top: 20mm;
+      bottom: 20mm;
+      left: 6mm;
+      width: 6mm;
+      overflow: visible;
+      
+      -epubx-flow-from: page-outside;
     }
     @-epubx-partition {
     	-epub-writing-mode: horizontal-tb;
