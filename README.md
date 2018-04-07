@@ -5,7 +5,7 @@
 ## install
 ```npm init```
 
-## raunch viewer
+## launch viewer
 ```npm start```
 
 ## LICENSE

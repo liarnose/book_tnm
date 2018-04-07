@@ -150,7 +150,7 @@ html {
     
     writing-mode: vertical-rl;
     font-size: 4mm;
-    height: 72mm; 
+    height: 82mm; 
     width: 6mm;
     text-align: center;
     font-family: 'header-logo';
@@ -159,34 +159,12 @@ html {
     border-left: 0.2mm solid #000;
     border-right: 0.2mm solid #000;
     
+    background: 
+      url(../image/sidebar-decoration.svg) no-repeat top,
+      url(../image/sidebar-decoration.svg) no-repeat bottom;
+    
     transform-origin: top left;
     transform: scale(1, 1.5)
-  }
-  
-  .header_subtitle::before {
-    content: '';
-    position: absolute;
-    height: 1mm;
-    width: 3.5mm;
-    border: 0.2mm solid #000;
-    
-    transform-origin: top right;
-    transform: skewY(-30deg);
-    filter: drop-shadow(0 3mm) drop-shadow(0 6mm);
-  }
-  
-  .header_subtitle::after {
-    content: '';
-    position: absolute;
-    bottom: 0mm;
-    right: 1mm;
-    height: 1mm;
-    width: 3.5mm;
-    border: 0.2mm solid #000;
-
-    transform-origin: bottom left;
-    transform: skewY(-30deg);
-    filter: drop-shadow(0 -3mm) drop-shadow(0 -6mm);
   }
   
   #footer_page-number {
