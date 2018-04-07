@@ -29,6 +29,12 @@
     url('../font/FORCED SQUARE.ttf') format('truetype');
 }
 @font-face {
+  font-family: 'heavy';
+  font-weight: bold;
+  src:
+    url('../font/SourceHanSans-Heavy.otf') format('opentype');
+}
+@font-face {
   font-family: 'quote';
   font-weight: normal;
   src:
@@ -117,6 +123,12 @@ html {
   
   .large-header {
     -epubx-flow-into: large-header;
+    -epubx-flow-options: exclusive;
+  }
+  
+  .text h2 {
+    -epubx-flow-into: medium-header;
+    -epubx-flow-options: exclusive;
   }
   
   .header_book-title {
@@ -138,7 +150,7 @@ html {
     
     writing-mode: vertical-rl;
     font-size: 4mm;
-    height: 92mm; 
+    height: 72mm; 
     width: 6mm;
     text-align: center;
     font-family: 'header-logo';
@@ -192,8 +204,7 @@ html {
     content: counter(page);
   }
   
-  @-epubx-page-master {
-
+  @-epubx-page-master page-large-haader {
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
       top: 20mm;
@@ -201,6 +212,7 @@ html {
       right: 21mm;
       height: 68mm;
       -epubx-flow-from: large-header;
+      -epubx-required: true;
     } 
 
     @-epubx-partition  {
@@ -255,7 +267,70 @@ html {
     }
   }
   
-    @-epubx-page-master {
+  @-epubx-page-master page-single-medium-header{
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 23mm;
+      left: 55mm;
+      right: 21mm;
+      height: 15mm;
+      -epubx-flow-from: medium-header;
+      -epubx-required: true;
+    } 
+
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 43mm;
+      left: 55mm;
+      padding-left: 58mm;
+      width: 54mm;
+      bottom: 20mm;
+      overflow: visible;
+      -epubx-flow-from: body;
+    }
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 43mm;
+      left: 55mm;
+      width: 54mm;
+      bottom: 20mm;
+      overflow: visible;
+      -epubx-flow-from: body;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      top: 9mm;
+      left: 0mm;
+      width: 100%;
+      height: 4mm;
+      padding: 0.5mm 18mm;
+      
+      border-top: 1mm solid #000;
+      border-bottom: 0.2mm solid #000;
+      
+      -epubx-flow-from: page-header;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      top: 20mm;
+      bottom: 20mm;
+      left: 9mm;
+      width: 6mm;
+      overflow: visible;
+      
+      -epubx-flow-from: page-outside;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      right: 21mm;
+      bottom: 12mm;
+      -epubx-flow-from: page-number;
+      -epubx-wrap-flow: auto;
+
+    }
+  }
+
+    @-epubx-page-master page-text {
 
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
@@ -309,7 +384,7 @@ html {
 }
 .large-header h1 {
   padding-top: 14mm;
-  font-family: 'gothic';
+  font-family: 'heavy';
   font-weight: bold;
   font-size: 11.5mm;
   text-align: center;
@@ -342,28 +417,17 @@ html {
 }
 
 .text h2 {  
-/*
-  width: 116mm;
-  height: 6mm;  
-*/
-  font-size: 4mm;
-  line-height: 6mm;
-  background: #ccc;
-  margin-bottom: 5mm;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding-top: 5mm; 
+  
+  font-family: 'heavy';
+  font-size: 7mm;
+  color: #fff;
+  background: url(../image/medium-header.svg);
 }
-z
-.text h1 {
-  counter-reset: sub-chapter;
-}
-.text h2::before{
-  counter-increment:sub-chapter 1;
-  content: counter(sub-chapter,cjk-ideographic) '、';
-}
-/*
-.text h2::after{
-  content: ' ───────────';
-}
-*/
+
 
 .text > p {
   margin-bottom: 5mm;
