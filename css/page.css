@@ -131,6 +131,11 @@ html {
     -epubx-flow-options: exclusive;
   }
   
+  .text .handout{
+    -epubx-flow-into: handout;
+    -epubx-flow-options: exclusive;
+  }
+  
   .header_book-title {
     -epubx-flow-into: page-header; 
     -epubx-flow-options: static;
@@ -240,12 +245,11 @@ html {
       right: 21mm;
       bottom: 12mm;
       -epubx-flow-from: page-number;
-      -epubx-wrap-flow: auto;
 
     }
   }
   
-  @-epubx-page-master page-single-medium-header{
+  @-epubx-page-master page-single-medium-header-and-handout{
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
       top: 23mm;
@@ -255,6 +259,16 @@ html {
       -epubx-flow-from: medium-header;
       -epubx-required: true;
     } 
+      
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 100mm;
+      left: 21mm;
+      right: 21mm;
+      height: 140m;
+      -epubx-flow-from: handout;
+      -epubx-required: true;
+    }   
 
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
@@ -262,7 +276,7 @@ html {
       left: 55mm;
       padding-left: 58mm;
       width: 54mm;
-      bottom: 20mm;
+      height: 55mm;
       overflow: visible;
       -epubx-flow-from: body;
     }
@@ -271,7 +285,7 @@ html {
       top: 43mm;
       left: 55mm;
       width: 54mm;
-      bottom: 20mm;
+      height: 55mm;
       overflow: visible;
       -epubx-flow-from: body;
     }
@@ -308,33 +322,114 @@ html {
     }
   }
 
-    @-epubx-page-master page-text {
+  @-epubx-page-master page-single-medium-header{
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 23mm;
+      left: 55mm;
+      right: 21mm;
+      height: 15mm;
+      -epubx-flow-from: medium-header;
+      -epubx-required: true;
+    } 
 
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
-      top: 20mm;
-      left: 52mm;
+      top: 43mm;
+      left: 55mm;
       padding-left: 58mm;
       width: 54mm;
-      bottom: 20mm;
+      bottom: 23mm;
       overflow: visible;
       -epubx-flow-from: body;
     }
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
-      top: 20mm;
-      left: 52mm;
+      top: 43mm;
+      left: 55mm;
       width: 54mm;
-      bottom: 20mm;
+      bottom: 23mm;
       overflow: visible;
       -epubx-flow-from: body;
     }
     @-epubx-partition {
     	-epub-writing-mode: horizontal-tb;
-      top: 8mm;
-      right: 15.5mm;
-      height: 2mm;
-      -epubx-flow-from: header-right;
+      top: 9mm;
+      left: 0mm;
+      width: 100%;
+      height: 4mm;
+      padding: 0.5mm 18mm;
+      
+      border-top: 1mm solid #000;
+      border-bottom: 0.2mm solid #000;
+      
+      -epubx-flow-from: page-header;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      top: 23mm;
+      bottom: 23mm;
+      left: 9mm;
+      width: 6mm;
+      overflow: visible;
+      
+      -epubx-flow-from: page-outside;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      right: 21mm;
+      bottom: 12mm;
+      -epubx-flow-from: page-number;
+      -epubx-wrap-flow: auto;
+
+    }
+  }
+  
+
+  @-epubx-page-master page-text {
+
+
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 43mm;
+      left: 55mm;
+      padding-left: 58mm;
+      width: 54mm;
+      height: 55mm;
+      overflow: visible;
+      -epubx-flow-from: body;
+    }
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 43mm;
+      left: 55mm;
+      width: 54mm;
+      height: 55mm;
+      overflow: visible;
+      -epubx-flow-from: body;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      top: 9mm;
+      left: 0mm;
+      width: 100%;
+      height: 4mm;
+      padding: 0.5mm 18mm;
+      
+      border-top: 1mm solid #000;
+      border-bottom: 0.2mm solid #000;
+      
+      -epubx-flow-from: page-header;
+    }
+    @-epubx-partition {
+    	-epub-writing-mode: horizontal-tb;
+      top: 20mm;
+      bottom: 20mm;
+      left: 9mm;
+      width: 6mm;
+      overflow: visible;
+      
+      -epubx-flow-from: page-outside;
     }
     @-epubx-partition {
     	-epub-writing-mode: horizontal-tb;
@@ -406,6 +501,28 @@ html {
   background: url(../image/medium-header.svg);
 }
 
+.handout{
+  width: 100%;
+  border: double 1mm #000;
+}
+.handout td {
+  border: double 1mm #000;
+}
+
+.handout thead td {
+  height:15mm;
+  text-align: center;
+  
+  font-family: 'heavy';
+  font-size: 7mm;
+  color: #fff;
+  background-color: #333;
+}
+
+.handout tbody td {
+  height:25mm;
+
+}
 
 .text > p {
   margin-bottom: 5mm;
