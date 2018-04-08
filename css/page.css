@@ -72,6 +72,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 q::before,q::after {
@@ -86,6 +87,8 @@ html {
   font-size: 2.75mm;
   line-height: 4mm;
   vertical-align: middle;
+  font-feature-settings : "palt";
+  text-align: justify;
   
   writing-mode: horizontal-tb;
   orphans: 1;
@@ -546,8 +549,8 @@ html {
   border-top: 2mm solid #000;
   border-bottom: 0.2mm solid #000;  
 }
-v
-.trailer-last {
+
+ .trailer-last {
   margin-top: 3.5mm;
   text-align: center;
 }
@@ -580,6 +583,7 @@ v
 
 .cast-connection{
   width: 50%;
+  margin-left: 1mm;
 }
 
 .cast-connection strong{
@@ -590,6 +594,7 @@ v
 .cast-ps{
   flex: 1;
   text-align: right;
+  margin-right: 1mm;
   
   font-family: 'gothic';
   font-weight: bold;
