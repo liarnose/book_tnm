@@ -469,8 +469,12 @@ html {
 }
 
 .text > h3 {
-  font-size: 6mm;
-  line-height: 10mm;
+  font-size: 5mm;
+  line-height: 7.5mm;
+}
+
+.gothic {
+  font-family: 'gothic';
 }
 
 
@@ -542,6 +546,10 @@ html {
   font-size: 7mm;
   color: #fff;
   background: url(../image/medium-header.svg);
+}
+
+.text h2.scene {
+font-family: 'gothic'
 }
 
 .handout{
