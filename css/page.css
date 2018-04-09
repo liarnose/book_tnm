@@ -78,7 +78,6 @@
 q::before,q::after {
   content: '';
 }
-
 /* ----------------------------------------
    ページ
    ---------------------------------------- */
@@ -119,6 +118,9 @@ html {
  
 
 @-epubx-page-template {
+  .new-page {
+   	page-break-after: always;
+  }
   blockquote {
 /*    -epubx-flow-into: sidenote;
     -epubx-flow-options: exclusive;*/
@@ -190,20 +192,31 @@ html {
     content: counter(page);
   }
   
-  @-epubx-page-master page-large-haader {
+  @-epubx-page-master page-large-haader-and-medium-header {
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
       top: 20mm;
       left: 21mm;
       right: 21mm;
-      height: 68mm;
+      height: 104mm;
       -epubx-flow-from: large-header;
       -epubx-required: true;
     } 
+    
+    @-epubx-partition  {
+    	-epub-writing-mode: horizontal-tb;
+      top: 130mm;
+      left: 55mm;
+      right: 21mm;
+      height: 15mm;
+      -epubx-flow-from: medium-header;
+      -epubx-required: true;
+    } 
+      
 
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
-      top: 94mm;
+      top: 148mm;
       left: 55mm;
       padding-left: 58mm;
       width: 54mm;
@@ -213,7 +226,7 @@ html {
     }
     @-epubx-partition  {
     	-epub-writing-mode: horizontal-tb;
-      top: 94mm;
+      top: 148mm;
       left: 55mm;
       width: 54mm;
       bottom: 20mm;
@@ -307,7 +320,7 @@ html {
     }
     @-epubx-partition {
     	-epub-writing-mode: horizontal-tb;
-      top: 20mm;
+      top: 23mm;
       bottom: 20mm;
       left: 9mm;
       width: 6mm;
@@ -459,37 +472,31 @@ html {
   color: #fff;
 }
 .large-header h1 {
-  padding-top: 14mm;
+  position: absolute;
+  left:5mm;
+  bottom:5mm;
+  
   font-family: 'heavy';
   font-weight: bold;
-  font-size: 11.5mm;
-  text-align: center;
-}
-.large-header div {
-  position: absolute;
-  right: 5mm;
-  bottom: 5mm;
-  height: 30mm;
-  width: 60mm;
-
-  background-color: #fff;
-  border-radius: 2mm;
-  color: #000;
-  padding: 2mm;
-  border: 1mm solid #999;
-  font-family: 'gothic';
+  font-size: 12mm;
+  line-height: 12mm;
+  
+  text-shadow:
+    0.5mm 0 #000,
+    -0.5mm 0 #000,
+    0 0.5mm #000,
+    0 -0.5mm #000,
+    0.5mm 0.5mm #000,
+    -0.5mm 0.5mm #000,
+    0.5mm -0.5mm #000,
+    -0.5mm -0.5mm #000;
 }
 
-.large-header cite {
-  position: absolute;
-  right: 2mm;
-  bottom: 2mm;
-
-  font-style: normal;
-}
-
-.large-header cite::before {
-  content: '────'
+.large-header h1::before {
+  content: 'シナリオ：\A';
+  
+	white-space: pre ;
+  font-size: 10mm;
 }
 
 .text h2 {  
