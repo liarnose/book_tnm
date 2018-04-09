@@ -83,8 +83,8 @@ q::before,q::after {
    ---------------------------------------- */
 html {
   font-family: 'mincho';
-  font-size: 2.75mm;
-  line-height: 4mm;
+  font-size: 3mm;
+  line-height: 5mm;
   vertical-align: middle;
   font-feature-settings : "palt";
   text-align: justify;
@@ -463,6 +463,39 @@ html {
    ---------------------------------------- */
 .text {
 }
+
+.text > p {
+  margin-bottom: 5mm;
+}
+
+.text > h3 {
+  font-size: 6mm;
+  line-height: 10mm;
+}
+
+
+.note {
+  font-family: 'quote';
+}
+
+.text em {
+  font-family: 'gothic';
+  font-weight: bold;
+  font-style: normal;
+}
+.text blockquote{
+  position: absolute;
+  font-family: 'gothic';
+  font-size: 2.75mm;
+  line-height: 4mm;
+  width:28mm;
+  left: -34mm;
+  top: auto;
+}
+.text  blockquote dt {
+  font-weight: bold;
+}
+
 .large-header{
   display: block;
   width: 100%;
@@ -541,13 +574,13 @@ html {
 
 .handout p{
   line-height: 3.5mm;
-  font-size: 2mm;
+  font-size: 2.5mm;
   font-family: 'quote'
 }
 
 .handout-trailer h3 {
   height: 10mm;
-  margin-bottom: 3.5mm;
+  margin-bottom: 3mm;
   
   font-size: 4mm;
   font-family: 'gothic';
@@ -558,7 +591,7 @@ html {
 }
 
  .trailer-last {
-  margin-top: 3.5mm;
+  margin-top: 3mm;
   text-align: center;
 }
 
@@ -618,42 +651,6 @@ html {
 }
 
 .cast-text p {
-  line-height: 2.5mm;
+  line-height: 3mm;
 }
 
-.text > p {
-  margin-bottom: 5mm;
-}
-
-.text > dl {
-  margin-bottom: 5mm;
-}
-.text > dl dt {
-  float: left;
-  font-family: 'gothic';
-  font-weight: bold;
-  clear: left;
-}
-.text > dl dt::after {
-  content: '：';
-}
-.text > dl dd {
-}
-
-.text em {
-  font-family: 'gothic';
-  font-weight: bold;
-  font-style: normal;
-}
-.text blockquote{
-  position: absolute;
-  font-family: 'gothic';
-  font-size: 2.75mm;
-  line-height: 4mm;
-  width:28mm;
-  left: -34mm;
-  top: auto;
-}
-.text  blockquote dt {
-  font-weight: bold;
-}
