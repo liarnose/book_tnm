@@ -15,6 +15,11 @@
   --page-margin-inside: 20mm;
   --page-margin-outside: 17mm;
   --page-margin-sides: 18.5mm;
+
+  --sidebar-width: 50mm;
+
+  --font-size: 14q;
+  --line: 20q;
 }
 
 
@@ -83,8 +88,8 @@ q::after {
    ---------------------------------------- */
 html {
   font-family: 'mincho';
-  font-size: 3mm;
-  line-height: 5mm;
+  font-size: var(--font-size);
+  line-height: var(--line);
   vertical-align: middle;
   font-feature-settings: "palt";
   text-align: justify;
@@ -116,49 +121,79 @@ html {
    個別パーツ
    ---------------------------------------- */
 .text {
+  padding-left: var(--sidebar-width);
+
   p {
-    margin-bottom: 5mm;
+    margin-bottom: var(--line);
+    text-indent: 1em;
+  }
+
+  p.gothic {
+    font-family: 'gothic';
+    text-indent: 0;
+  }
+
+  h2 {
+    width: 100%;
+    height: calc(var(--line) * 3);
+    text-align: center;
+    padding-top: 5mm;
+
+    font-family: 'heavy';
+    font-size: 7mm;
+    color: #fff;
+    background: url(image/medium-header.svg) center/100% 100% no-repeat;
+  }
+
+  h3 {
+    font-size: 5mm;
+    line-height: 7.5mm;
+  }
+
+  em {
+    font-family: 'gothic';
+    font-weight: bold;
+    font-style: normal;
   }
 }
 
-.text > h3 {
-  font-size: 5mm;
-  line-height: 7.5mm;
-}
 
-.gothic {
-  font-family: 'gothic';
-}
 
 
 .note {
   font-family: 'quote';
 }
 
-.text em {
-  font-family: 'gothic';
-  font-weight: bold;
-  font-style: normal;
-}
-
-.text blockquote {
+blockquote {
   position: absolute;
   font-family: 'gothic';
-  font-size: 2.75mm;
-  line-height: 4mm;
-  width: 28mm;
-  left: -34mm;
+  font-size: 12q;
+  line-height: 20q;
+
+  width: calc(var(--sidebar-width) - 7.5mm);
+  left: 0;
+
   top: auto;
+
+  /*
+  border-top: #000 0.4mm solid;
+  border-bottom: #000 0.1mm solid;
+  */
+
+  dt {
+    font-weight: bold;
+  }
 }
 
-.text blockquote dt {
-  font-weight: bold;
-}
 
 .large-header {
   display: block;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: calc(var(--page-width) - 2 * var(--page-margin-sides));
+  height: calc(var(--line) * 20);
+
+  left: calc(- var(--sidebar-width));
+  margin-bottom: var(--line);
 
   background-color: #666;
   color: #fff;
@@ -193,24 +228,15 @@ html {
 
 }
 
-.text h2 {
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  padding-top: 5mm;
-
-  font-family: 'heavy';
-  font-size: 7mm;
-  color: #fff;
-  background: url(image/medium-header.svg);
-}
-
-.text h2.scene {
-  font-family: 'gothic'
-}
-
 .handout {
-  width: 100%;
+  page-break-after: always;
+  float-reference: page;
+  float: bottom;
+  position: relative;
+  
+  width: calc(var(--page-width) - 2 * var(--page-margin-sides));
+  left: 0;
+    
   border: double 1mm #000;
 }
 
