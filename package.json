@@ -4,7 +4,7 @@
   "description": "",
   "main": "book.html",
   "scripts": {
-    "watch:theme": "node script\build-theme.js",
+    "watch:theme": "node script/build-theme.js",
     "start": "savepdf --preview book.html"
   },
   "author": "liarnose",

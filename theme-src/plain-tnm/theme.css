@@ -1,0 +1,321 @@
+﻿@charset "UTF-8";
+
+/* ----------------------------------------
+   サイフィクリプレイ風レイアウト
+   ---------------------------------------- */
+
+:root {
+  --page-width: 210mm;
+  --page-height: 297mm;
+
+  --cuttingMargin: 3mm;
+
+  --page-margin-top: 20mm;
+  --page-margin-bottom: 20mm;
+  --page-margin-inside: 20mm;
+  --page-margin-outside: 17mm;
+  --page-margin-sides: 18.5mm;
+}
+
+
+/* ----------------------------------------
+   フォント読み込み
+   ---------------------------------------- */
+@font-face {
+  font-family: 'heavy';
+  font-weight: bold;
+  src:
+    url('font/SourceHanSans-Heavy.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'quote';
+  font-weight: normal;
+  src:
+    url('font/SourceHanSans-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'gothic';
+  font-weight: normal;
+  src:
+    url('font/SourceHanSans-Normal.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'gothic';
+  font-weight: bold;
+  src:
+    url('font/SourceHanSans-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'mincho';
+  font-weight: normal;
+  src:
+    url('font/SourceHanSerif-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'mincho';
+  font-weight: bold;
+  src:
+    url('font/SourceHanSerif-Heavy.otf') format('opentype');
+}
+
+/* ----------------------------------------
+   リセット
+   ---------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+q::before,
+q::after {
+  content: '';
+}
+
+/* ----------------------------------------
+   ページ
+   ---------------------------------------- */
+html {
+  font-family: 'mincho';
+  font-size: 3mm;
+  line-height: 5mm;
+  vertical-align: middle;
+  font-feature-settings: "palt";
+  text-align: justify;
+
+  writing-mode: horizontal-tb;
+  orphans: 1;
+  widows: 1;
+}
+
+
+@page {
+  size: var(--page-width) var(--page-height);
+  margin: var(--page-margin-top) var(--page-margin-sides) var(--page-margin-bottom);
+
+  background: url('image/bg.svg');
+
+  counter-increment: page;
+}
+
+@page: first {
+  counter-reset: page 0;
+}
+
+.new-page {
+  page-break-after: always;
+}
+
+/* ----------------------------------------
+   個別パーツ
+   ---------------------------------------- */
+.text {
+  p {
+    margin-bottom: 5mm;
+  }
+}
+
+.text > h3 {
+  font-size: 5mm;
+  line-height: 7.5mm;
+}
+
+.gothic {
+  font-family: 'gothic';
+}
+
+
+.note {
+  font-family: 'quote';
+}
+
+.text em {
+  font-family: 'gothic';
+  font-weight: bold;
+  font-style: normal;
+}
+
+.text blockquote {
+  position: absolute;
+  font-family: 'gothic';
+  font-size: 2.75mm;
+  line-height: 4mm;
+  width: 28mm;
+  left: -34mm;
+  top: auto;
+}
+
+.text blockquote dt {
+  font-weight: bold;
+}
+
+.large-header {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background-color: #666;
+  color: #fff;
+
+  h1 {
+    position: absolute;
+    left: 5mm;
+    bottom: 5mm;
+
+    font-family: 'heavy';
+    font-weight: bold;
+    font-size: 12mm;
+    line-height: 12mm;
+
+    text-shadow:
+      0.5mm 0 #000,
+      -0.5mm 0 #000,
+      0 0.5mm #000,
+      0 -0.5mm #000,
+      0.5mm 0.5mm #000,
+      -0.5mm 0.5mm #000,
+      0.5mm -0.5mm #000,
+      -0.5mm -0.5mm #000;
+
+    &::before {
+      content: 'シナリオ：\A';
+
+      white-space: pre;
+      font-size: 10mm;
+    }
+  }
+
+}
+
+.text h2 {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding-top: 5mm;
+
+  font-family: 'heavy';
+  font-size: 7mm;
+  color: #fff;
+  background: url(image/medium-header.svg);
+}
+
+.text h2.scene {
+  font-family: 'gothic'
+}
+
+.handout {
+  width: 100%;
+  border: double 1mm #000;
+}
+
+.handout td {
+  border: double 1mm #000;
+}
+
+.handout thead td {
+  height: 15mm;
+  text-align: center;
+
+  font-family: 'heavy';
+  font-size: 7mm;
+  color: #fff;
+  background-color: #000;
+}
+
+.handout tbody td {
+  height: 25mm;
+  vertical-align: top;
+  padding: 3mm;
+}
+
+.handout td + td {
+  width: 96mm;
+}
+
+.handout p {
+  line-height: 3.5mm;
+  font-size: 2.5mm;
+  font-family: 'quote'
+}
+
+.handout-trailer h3 {
+  height: 10mm;
+  margin-bottom: 3mm;
+
+  font-size: 4mm;
+  font-family: 'gothic';
+
+  padding-top: 2mm;
+  border-top: 2mm solid #000;
+  border-bottom: 0.2mm solid #000;
+}
+
+.trailer-last {
+  margin-top: 3mm;
+  text-align: center;
+}
+
+.handout .handout-cast {
+  padding: 0;
+}
+
+.cast-row {
+  display: flex;
+  height: 5mm;
+}
+
+.handout-cast h3 {
+  height: 5mm;
+  width: 50%;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+  border-radius: 0 0 2mm 0;
+}
+
+.cast-style {
+  height: 5mm;
+  flex: 1;
+  margin-right: 1mm;
+  padding: 1mm;
+  border-bottom: 0.2mm solid #000;
+}
+
+.cast-connection {
+  width: 50%;
+  margin-left: 1mm;
+}
+
+.cast-connection strong {
+  font-family: 'gothic';
+  font-size: 3mm;
+}
+
+.cast-ps {
+  flex: 1;
+  text-align: right;
+  margin-right: 1mm;
+
+  font-family: 'gothic';
+  font-weight: bold;
+}
+
+.cast-text {
+  width: 100%;
+  height: 100%;
+  padding: 0 1mm;
+  /*
+  column-count: 2;
+  column-gap: 3mm;
+*/
+}
+
+.cast-text p {
+  line-height: 3mm;
+}

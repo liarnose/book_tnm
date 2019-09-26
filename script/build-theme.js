@@ -16,7 +16,7 @@ metalsmith(__dirname)
   }))
   .use(watch({
       paths: {
-        "${source}/**/*": true,
+        '${source}/**/*': true,
       },
   }))
   .build(function(err) {
