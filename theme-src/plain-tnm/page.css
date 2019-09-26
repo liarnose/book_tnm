@@ -4,10 +4,9 @@
    サイフィクリプレイ風レイアウト
    ---------------------------------------- */
 
-/* @page内で使えないのでメモ用に定数を書いてあるだけ
 :root {
-  --page-width: 182mm;
-  --page-height: 257mm;
+  --page-width: 210mm;
+  --page-height: 297mm;
 
   --cuttingMargin: 3mm;
 
@@ -17,7 +16,7 @@
   --page-margin-outside: 17mm;
   --page-margin-sides: 18.5mm;
 }
-*/
+
 
 /* ----------------------------------------
    フォント読み込み
@@ -96,7 +95,7 @@ html {
 
 
 @page{
-  size: 188mm 263mm;
+  size: var(--page-width) 263mm;
   
   counter-increment: page;
 }
@@ -462,10 +461,9 @@ html {
    個別パーツ
    ---------------------------------------- */
 .text {
-}
-
-.text > p {
-  margin-bottom: 5mm;
+  p {
+    margin-bottom: 5mm;
+  }
 }
 
 .text > h3 {
