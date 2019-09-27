@@ -44,5 +44,5 @@ module.exports = function include_plugin(md, options) {
     state.src = _replace(state.src);
   }
 
-  md.core.ruler.before('normalize', 'statblock', _doStatblock);
+  md.core.ruler.after('normalize', 'statblock', _doStatblock);
 };
