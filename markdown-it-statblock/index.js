@@ -27,10 +27,13 @@ module.exports = function include_plugin(md, options) {
     while ((cap = pattern.exec(src))) {
       var templateFilePath = path.resolve(templateRoot, cap[1].trim());
       var dataFilePath = path.resolve(dataRoot, cap[2].trim());
-      
-      var template = fs.readFileSync(templateFilePath, 'utf8');
-      var data = JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
-      var srcText = hbs.render(template, {}, data).body;
+      try{
+        var template = fs.readFileSync(templateFilePath, 'utf8');
+        var data = JSON.parse(fs.readFileSync(dataFilePath, 'utf8'));
+        var srcText = hbs.render(template, {}, data).body;
+      } catch(e) {
+        srcText = '';
+      }
       
       src = src.slice(0, cap.index) + srcText + src.slice(cap.index + cap[0].length, src.length);
     }

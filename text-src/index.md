@@ -1,11 +1,7 @@
 ---
 title: FAKE ANGEL
 ---
-
-<haeder class="large-header">
-  <h1>『組版サンプル作成』</h1>
-  <img src="image/back.png" alt="">
-</haeder>
+<<statblock plain-tnm/header.hbs,json/header.json>>
 
 ## プレアクト
 ### ●シナリオデータ
@@ -16,5 +12,3 @@ hugahohoge
 
 > 傍注てすと
 > : これはてすとです。
-
-<<statblock plain-tnm/test.hbs,json/test.json>>
