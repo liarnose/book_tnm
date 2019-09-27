@@ -4,14 +4,22 @@
   "description": "",
   "main": "book.html",
   "scripts": {
-    "watch:theme": "node script/build-theme.js",
-    "start": "savepdf --preview book.html"
+    "start": "savepdf --preview dest/index.html",
+    "build:theme": "node script/build-theme.js",
+    "build:text": "node script/build-text.js",
+    "watch:theme": "node script/watch-theme.js",
+    "watch:text": "node script/watch-text.js"
   },
   "author": "liarnose",
   "license": "MIT",
   "dependencies": {
+    "jstransformer-handlebars": "^1.1.0",
+    "markdown-it-attrs": "^3.0.1",
+    "markdown-it-deflist": "^2.0.3",
     "metalsmith": "^2.3.0",
     "metalsmith-copy": "^0.4.1",
+    "metalsmith-layouts": "^2.3.1",
+    "metalsmith-markdownit": "^0.5.0",
     "metalsmith-postcss": "^4.2.0",
     "metalsmith-watch": "^1.0.3",
     "postcss": "^7.0.18",
