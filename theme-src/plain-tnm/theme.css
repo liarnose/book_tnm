@@ -106,11 +106,14 @@ html {
 
   background: url('image/bg.svg');
 
-  counter-increment: page;
-}
+  @bottom-right {
+    font-family: 'gothic';
+    font-size: 20q;
+    content: counter(page);
+    margin-bottom: 5mm;
+    margin-right: -10mm;
+  }
 
-@page: first {
-  counter-reset: page 0;
 }
 
 .new-page {
@@ -125,7 +128,6 @@ html {
 
   p {
     margin-bottom: var(--line);
-    text-indent: 1em;
   }
 
   p.gothic {
@@ -190,13 +192,15 @@ blockquote {
   display: block;
   position: relative;
   width: calc(var(--page-width) - 2 * var(--page-margin-sides));
-  height: calc(var(--line) * 20);
+  min-height: calc(var(--line) * 10);
 
   left: calc(- var(--sidebar-width));
   margin-bottom: var(--line);
 
-  background-color: #666;
+  background: #666;
   color: #fff;
+
+  overflow: hidden;
 
   h1 {
     position: absolute;
@@ -226,122 +230,134 @@ blockquote {
     }
   }
 
+  img {
+    display: block;
+    width: 100%;
+  }
+
 }
 
 .handout {
   page-break-after: always;
-  float-reference: page;
-  float: bottom;
-  position: relative;
-  
-  width: calc(var(--page-width) - 2 * var(--page-margin-sides));
+  position: absolute;
   left: 0;
+  bottom: 0;
+
+  width: calc(var(--page-width) - 2 * var(--page-margin-sides));
+
+  border: double 1mm #000;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  td {
+    border: double 1mm #000;
+  }
+
+  thead td {
+    height: 15mm;
+    text-align: center;
+
+    font-family: 'heavy';
+    font-size: 28q;
+    color: #fff;
+    background-color: #000;
+  }
+
+
+
+  tbody td {
+    height: calc(var(--line) * 5);
+    vertical-align: top;
+    padding: 3mm;
+  }
+
+  td + td {
+    width: 110mm;
+  }
+
+  p {
+    line-height: 16q;
+    font-size: 12q;
+    font-family: 'quote'
+  }
+
+  .handout-trailer h3 {
+    height: 12mm;
+    margin-bottom: 3mm;
+
+    font-size: 24q;
+    font-family: 'gothic';
     
-  border: double 1mm #000;
-}
 
-.handout td {
-  border: double 1mm #000;
-}
+    padding-top: 1mm;
+    border-top: 2mm solid #000;
+    border-bottom: 0.2mm solid #000;
+  }
+  
+  .trailer-last {
+    margin-top: 3mm;
+    text-align: center;
+  }
 
-.handout thead td {
-  height: 15mm;
-  text-align: center;
+  .handout-cast {
+    padding: 0;
+  }
 
-  font-family: 'heavy';
-  font-size: 7mm;
-  color: #fff;
-  background-color: #000;
-}
+  .cast-row {
+    display: flex;
+/*    height: 7mm;*/
+  }
 
-.handout tbody td {
-  height: 25mm;
-  vertical-align: top;
-  padding: 3mm;
-}
+  .handout-cast h3 {
+    height: 7mm;
+    width: 50%;
+    color: #fff;
+    background-color: #000;
+    text-align: center;
+    border-radius: 0 0 2mm 0;
+  }
 
-.handout td + td {
-  width: 96mm;
-}
+  .cast-style {
+    height: 7mm;
+    flex: 1;
+    margin-right: 1mm;
+    padding: 1mm;
+    border-bottom: 0.2mm solid #000;
+  }
 
-.handout p {
-  line-height: 3.5mm;
-  font-size: 2.5mm;
-  font-family: 'quote'
-}
+  .cast-connection {
+    width: 50%;
+    margin-left: 1mm;
+  }
 
-.handout-trailer h3 {
-  height: 10mm;
-  margin-bottom: 3mm;
+  .cast-connection strong {
+    font-family: 'gothic';
+    font-size: 3mm;
+  }
 
-  font-size: 4mm;
-  font-family: 'gothic';
+  .cast-ps {
+    flex: 1;
+    text-align: right;
+    margin-right: 1mm;
 
-  padding-top: 2mm;
-  border-top: 2mm solid #000;
-  border-bottom: 0.2mm solid #000;
-}
+    font-family: 'gothic';
+    font-weight: bold;
+  }
 
-.trailer-last {
-  margin-top: 3mm;
-  text-align: center;
-}
-
-.handout .handout-cast {
-  padding: 0;
-}
-
-.cast-row {
-  display: flex;
-  height: 5mm;
-}
-
-.handout-cast h3 {
-  height: 5mm;
-  width: 50%;
-  color: #fff;
-  background-color: #000;
-  text-align: center;
-  border-radius: 0 0 2mm 0;
-}
-
-.cast-style {
-  height: 5mm;
-  flex: 1;
-  margin-right: 1mm;
-  padding: 1mm;
-  border-bottom: 0.2mm solid #000;
-}
-
-.cast-connection {
-  width: 50%;
-  margin-left: 1mm;
-}
-
-.cast-connection strong {
-  font-family: 'gothic';
-  font-size: 3mm;
-}
-
-.cast-ps {
-  flex: 1;
-  text-align: right;
-  margin-right: 1mm;
-
-  font-family: 'gothic';
-  font-weight: bold;
-}
-
-.cast-text {
-  width: 100%;
-  height: 100%;
-  padding: 0 1mm;
-  /*
+  .cast-text {
+    width: 100%;
+    height: 100%;
+    padding: 2mm;
+    /*
   column-count: 2;
   column-gap: 3mm;
 */
-}
+  }
 
-.cast-text p {
-  line-height: 3mm;
+  .cast-text p {
+    line-height: 3mm;
+  }
+
 }
