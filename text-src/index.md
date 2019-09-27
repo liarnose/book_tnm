@@ -17,4 +17,4 @@ hugahohoge
 > 傍注てすと
 > : これはてすとです。
 
-<<statblock test.hbs,test.json>>
+<<statblock plain-tnm/test.hbs,json/test.json>>

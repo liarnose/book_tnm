@@ -2,6 +2,7 @@ var metalsmith = require('metalsmith');
 var markdown = require('metalsmith-markdownit');
 var itAttrs = require('markdown-it-attrs');
 var itDeflist = require('markdown-it-deflist');
+var itStatblock = require('../markdown-it-statblock');
 var layouts = require('metalsmith-layouts');
 var watch = require('metalsmith-watch');
 
@@ -10,7 +11,11 @@ var md = markdown('default',{
 });
 md.parser
   .use(itAttrs)
-  .use(itDeflist);
+  .use(itDeflist)
+  .use(itStatblock, {
+    dataRoot: 'dest/',
+    templateRoot: 'dest/',
+  });
 
 metalsmith(__dirname)
   .source('../text-src')
