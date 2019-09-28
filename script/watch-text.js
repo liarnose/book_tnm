@@ -7,7 +7,7 @@ var layouts = require('metalsmith-layouts');
 var watch = require('metalsmith-watch');
 
 var md = markdown('default',{
-    html: true,
+  html: true,
 });
 md.parser
   .use(itAttrs)

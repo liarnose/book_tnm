@@ -1,0 +1,14 @@
+<div class="npc">
+  <h4>{{name}}</h4>
+  <div class="npc-row">
+    <div>
+      <h5>▼スタイル</h5>
+      <p class="no-indent">{{style}}</p>
+      <h5>▼解説</h5>
+        {{#each text}}
+          <p>{{this}}</p>
+        {{/each}}
+    </div>
+    <img src="{{image}}" alt="">
+  </div>
+</div>

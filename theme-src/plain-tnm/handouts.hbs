@@ -1,0 +1,126 @@
+<table class="handout full-width">
+  <thead>
+    <tr>
+      <td colspan="3">トレーラー＆シナリオハンドアウトシート</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3" class="handout-trailer">
+        <h3>アクトトレーラー</h3>
+        {{#each trailer}}
+          <p>{{this}}</p>
+        {{/each}}
+        <p class="trailer-last">トーキョー・ナイトメア<br>「{{title}}」<br>夜が来て、悪夢が始まる。</p>
+      </td>
+      <td class="handout-cast">
+        {{#if cast.[0]}}{{#with cast.[0]}}
+            <div class="cast-row">
+              <h3>キャスト①</h3>
+              <p class="cast-style">スタイル：{{style}}</p>
+            </div>
+            <div class="cast-row">
+              <p class="cast-connection"><strong>〈コネ：{{connection}}〉</strong>{{connectionSuit}}</p>
+              <p class="cast-ps">【PS：{{ps}}】</p>
+            </div>
+            <div class="cast-text">
+              {{#each text}}
+                <p>{{this}}</p>
+              {{/each}}
+            </div>
+          {{/with}}{{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="handout-cast">
+        {{#if cast.[1]}}{{#with cast.[1]}}
+            <div class="cast-row">
+              <h3>キャスト②</h3>
+              <p class="cast-style">スタイル：{{style}}</p>
+            </div>
+            <div class="cast-row">
+              <p class="cast-connection"><strong>〈コネ：{{connection}}〉</strong>{{connectionSuit}}</p>
+              <p class="cast-ps">【PS：{{ps}}】</p>
+            </div>
+            <div class="cast-text">
+              {{#each text}}
+                <p>{{this}}</p>
+              {{/each}}
+            </div>
+          {{/with}}{{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="handout-cast">
+        {{#if cast.[2]}}{{#with cast.[2]}}
+            <div class="cast-row">
+              <h3>キャスト③</h3>
+              <p class="cast-style">スタイル：{{style}}</p>
+            </div>
+            <div class="cast-row">
+              <p class="cast-connection"><strong>〈コネ：{{connection}}〉</strong>{{connectionSuit}}</p>
+              <p class="cast-ps">【PS：{{ps}}】</p>
+            </div>
+            <div class="cast-text">
+              {{#each text}}
+                <p>{{this}}</p>
+              {{/each}}
+            </div>
+          {{/with}}{{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2" class="handout-regulation">
+        <h3>レギュレーション</h3>
+        {{#if exp}}
+          <h4>経験点の使用</h4>
+          <p>{{exp}}</p>
+        {{/if}}
+        {{#if kamiwazaNeed}}
+          <h4>必要な神業</h4>
+          <p>{{{kamiwazaNeed}}}</p>
+        {{/if}}
+        {{#if kamiwazaExpect}}
+          <h4>使用が想定されている神業</h4>
+          <p>{{kamiwazaExpect}}</p>
+        {{/if}}
+      </td>
+      <td class="handout-cast">
+        {{#if cast.[3]}}{{#with cast.[3]}}
+            <div class="cast-row">
+              <h3>キャスト④</h3>
+              <p class="cast-style">スタイル：{{style}}</p>
+            </div>
+            <div class="cast-row">
+              <p class="cast-connection"><strong>〈コネ：{{connection}}〉</strong>{{connectionSuit}}</p>
+              <p class="cast-ps">【PS：{{ps}}】</p>
+            </div>
+            <div class="cast-text">
+              {{#each text}}
+                <p>{{this}}</p>
+              {{/each}}
+            </div>
+          {{/with}}{{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="handout-cast">
+        {{#if cast.[4]}}{{#with cast.[4]}}
+            <div class="cast-row">
+              <h3>キャスト⑤</h3>
+              <p class="cast-style">スタイル：{{style}}</p>
+            </div>
+            <div class="cast-row">
+              <p class="cast-connection"><strong>〈コネ：{{connection}}〉</strong>{{connectionSuit}}</p>
+              <p class="cast-ps">【PS：{{ps}}】</p>
+            </div>
+            <div class="cast-text">
+              {{#each text}}
+                <p>{{this}}</p>
+              {{/each}}
+            </div>
+          {{/with}}{{/if}}
+      </td>
+    </tr>
+  </tbody>
+</table>

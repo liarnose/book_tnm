@@ -1,7 +1,7 @@
 ﻿@charset "UTF-8";
 
 /* ----------------------------------------
-   サイフィクリプレイ風レイアウト
+   トーキョー・ナイトメア風A4レイアウト
    ---------------------------------------- */
 
 :root {
@@ -10,11 +10,11 @@
 
   --cuttingMargin: 3mm;
 
-  --page-margin-top: 20mm;
-  --page-margin-bottom: 20mm;
-  --page-margin-inside: 20mm;
-  --page-margin-outside: 17mm;
-  --page-margin-sides: 18.5mm;
+  --page-margin-top: 18.5mm;
+  --page-margin-bottom: 18.5mm;
+  --page-margin-inside: 22mm;
+  --page-margin-outside: 18mm;
+  --page-margin-sides: 20mm;
 
   --sidebar-width: 50mm;
 
@@ -127,12 +127,19 @@ html {
   padding-left: var(--sidebar-width);
 
   p {
-    margin-bottom: var(--line);
+    text-indent: 1em;
   }
 
-  p.gothic {
-    font-family: 'gothic';
+  .no-indent {
     text-indent: 0;
+  }
+
+  .gothic {
+    font-family: 'gothic';
+  }
+
+  .note {
+    font-family: 'quote';
   }
 
   h2 {
@@ -145,25 +152,43 @@ html {
     font-size: 7mm;
     color: #fff;
     background: url(image/medium-header.svg) center/100% 100% no-repeat;
+
+    break-after: avoid;
   }
 
   h3 {
-    font-size: 5mm;
-    line-height: 7.5mm;
+    font-size: 20q;
+    line-height: calc(var(--line) * 2);
+
+    break-after: avoid;
   }
 
+  h4 {
+    font-size: 16q;
+    line-height: 20q;
+
+    break-after: avoid;
+  }
+
+  h5 {
+    font-size: 14q;
+    line-height: 20q;
+
+    break-after: avoid;
+  }
+
+
   em {
+    font-family: 'gothic';
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  strong {
     font-family: 'gothic';
     font-weight: bold;
     font-style: normal;
   }
-}
-
-
-
-
-.note {
-  font-family: 'quote';
 }
 
 blockquote {
@@ -185,16 +210,21 @@ blockquote {
   dt {
     font-weight: bold;
   }
+
+  dd {
+    text-indent: 1em;
+  }
 }
 
-
-.large-header {
+.full-width {
   display: block;
   position: relative;
   width: calc(var(--page-width) - 2 * var(--page-margin-sides));
-  min-height: calc(var(--line) * 10);
-
   left: calc(- var(--sidebar-width));
+}
+
+.large-header {
+  min-height: calc(var(--line) * 10);
   margin-bottom: var(--line);
 
   background: #666;
@@ -212,6 +242,7 @@ blockquote {
     font-size: 12mm;
     line-height: 12mm;
 
+    /* vivliostyleがtext-stroke未対応なので */
     text-shadow:
       0.5mm 0 #000,
       -0.5mm 0 #000,
@@ -221,6 +252,8 @@ blockquote {
       -0.5mm 0.5mm #000,
       0.5mm -0.5mm #000,
       -0.5mm -0.5mm #000;
+
+    text-stroke: 0.5mm #000;
 
     &::before {
       content: 'シナリオ：\A';
@@ -242,8 +275,6 @@ blockquote {
   position: absolute;
   left: 0;
   bottom: 0;
-
-  width: calc(var(--page-width) - 2 * var(--page-margin-sides));
 
   border: double 1mm #000;
 
@@ -280,7 +311,7 @@ blockquote {
   p {
     line-height: 16q;
     font-size: 12q;
-    font-family: 'quote'
+    font-family: 'quote';
   }
 
   .handout-trailer h3 {
@@ -288,17 +319,21 @@ blockquote {
     margin-bottom: 3mm;
 
     font-size: 24q;
-    font-family: 'gothic';
-    
+    font-family: 'heavy';
+
 
     padding-top: 1mm;
     border-top: 2mm solid #000;
     border-bottom: 0.2mm solid #000;
   }
-  
+
   .trailer-last {
     margin-top: 3mm;
     text-align: center;
+  }
+
+  .handout-regulation {
+    font-family: "gothic"
   }
 
   .handout-cast {
@@ -307,7 +342,6 @@ blockquote {
 
   .cast-row {
     display: flex;
-/*    height: 7mm;*/
   }
 
   .handout-cast h3 {
@@ -347,8 +381,6 @@ blockquote {
   }
 
   .cast-text {
-    width: 100%;
-    height: 100%;
     padding: 2mm;
     /*
   column-count: 2;
@@ -356,8 +388,59 @@ blockquote {
 */
   }
 
-  .cast-text p {
-    line-height: 3mm;
+  .cast-text p {}
+
+}
+
+.npc {
+  width: calc(var(--page-width) - 2 * var(--page-margin-sides) - var(--sidebar-width));
+  margin-top: var(--line);
+  margin-left: 2mm;
+  min-height: calc(var(--line) * 10);
+  float: bottom;
+  float-reference: page;
+
+  background: #ccc;
+
+  .npc-row {
+    display: flex;
+    align-items: stretch;
+
+    div {
+      flex: 1;
+      padding: 2mm;
+      font-family: 'gothic';
+    }
+
+    img {
+      display: block;
+      border: 0.4mm #000 solid;
+      height: calc(var(--line) * 10 - 30q);
+    }
   }
 
+
+
+  h4 {
+    font-family: 'heavy';
+    font-size: 20q;
+    line-height: 30q;
+    height: 30q;
+    text-align: center;
+
+    background: url(image/npc-header.png) center/100% 100% no-repeat;
+
+    color: #fff;
+  }
+
+  h5 {
+    line-height: 16q;
+    font-size: 12q;
+  }
+
+  p {
+    line-height: 16q;
+    font-size: 12q;
+    font-family: 'quote';
+  }
 }
