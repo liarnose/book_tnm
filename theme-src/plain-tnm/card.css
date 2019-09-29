@@ -95,14 +95,14 @@ html {
 @page {
   size: var(--page-width) var(--page-height);
   margin: 0;
-  padding: calc((var(--page-height) - 2 * var(--card-height)) / 2) calc((var(--page-width) - 4 * var(--card-width)) / 2);
+  margin: calc((var(--page-height) - 2 * var(--card-height)) / 2) calc((var(--page-width) - 4 * var(--card-width)) / 2);
 
 
 
   @bottom-right {
     font-family: 'gothic';
     font-size: 20q;
-    content: counter(page);
+    content: counter(page) "/" counter(pages);
     margin-bottom: 5mm;
     margin-right: -10mm;
   }
