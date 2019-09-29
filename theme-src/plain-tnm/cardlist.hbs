@@ -1,0 +1,27 @@
+<div class="cardlist">
+  {{#each cardlist}}
+    <article class="w-card">
+      <div class="card-l">
+        <h2>
+          {{#each name}}
+            <p>{{this}}</p>
+          {{/each}}
+        </h2>
+        <h3>
+          {{#each skill}}
+            <p>{{this}}</p>
+          {{/each}}
+          {{#if difficulty}}
+            <p>目標値{{difficulty}}</p>
+          {{/if}}
+        </h3>
+      </div>
+      <div class="card-r">
+        <h2>{{#each name}}{{this}}{{/each}}</h2>
+        {{#each text}}
+          <p>{{{this}}}</p>
+        {{/each}}
+      </div>
+    </article>
+  {{/each}}
+</div>

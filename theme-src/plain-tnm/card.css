@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+/* ----------------------------------------
+   トーキョー・ナイトメア風A4レイアウト
+   ---------------------------------------- */
+
+:root {
+  --page-width: 297mm;
+  --page-height: 210mm;
+
+  --card-width: 63mm;
+  --card-height: 88mm;
+
+  --cuttingMargin: 3mm;
+}
+
+
+/* ----------------------------------------
+   フォント読み込み
+   ---------------------------------------- */
+@font-face {
+  font-family: 'heavy';
+  font-weight: bold;
+  src:
+    url('font/SourceHanSans-Heavy.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'quote';
+  font-weight: normal;
+  src:
+    url('font/SourceHanSans-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'gothic';
+  font-weight: normal;
+  src:
+    url('font/SourceHanSans-Normal.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'gothic';
+  font-weight: bold;
+  src:
+    url('font/SourceHanSans-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'mincho';
+  font-weight: normal;
+  src:
+    url('font/SourceHanSerif-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'mincho';
+  font-weight: bold;
+  src:
+    url('font/SourceHanSerif-Heavy.otf') format('opentype');
+}
+
+/* ----------------------------------------
+   リセット
+   ---------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+q::before,
+q::after {
+  content: '';
+}
+
+/* ----------------------------------------
+   ページ
+   ---------------------------------------- */
+html {
+  font-family: 'mincho';
+  font-size: var(--font-size);
+  line-height: var(--line);
+  vertical-align: middle;
+  font-feature-settings: "palt";
+  text-align: justify;
+
+  writing-mode: horizontal-tb;
+  orphans: 1;
+  widows: 1;
+}
+
+
+@page {
+  size: var(--page-width) var(--page-height);
+  margin: 0;
+  padding: calc((var(--page-height) - 2 * var(--card-height)) / 2) calc((var(--page-width) - 4 * var(--card-width)) / 2);
+
+
+
+  @bottom-right {
+    font-family: 'gothic';
+    font-size: 20q;
+    content: counter(page);
+    margin-bottom: 5mm;
+    margin-right: -10mm;
+  }
+
+}
+
+.new-page {
+  page-break-after: always;
+}
+
+/* ----------------------------------------
+   個別パーツ
+   ---------------------------------------- */
+
+.cardlist {
+
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  .w-card {
+    display: flex;
+    page-break-inside: avoid;
+  }
+
+  .card-l {
+    height: var(--card-height);
+    width: var(--card-width);
+
+    background: url(image/front.jpg) center center /100% 100%;
+    border: 0.4mm solid #000;
+
+    overflow: hidden;
+
+    h2 {
+      background: rgba(255, 255, 255, 0.5);
+      text-align: center;
+
+      width: 90%;
+      font-family: 'heavy';
+      font-size: 6.5mm;
+      line-height: 10mm;
+      margin: 20mm auto 10mm;
+      transform: rotate(-10deg);
+    }
+
+    h3 {
+      color: #fff;
+      text-align: center;
+
+      width: 90%;
+      font-family: 'mincho';
+      font-size: 4mm;
+      line-height: 6mm;
+      margin: auto;
+      transform: rotate(-10deg);
+    }
+  }
+
+  .card-r {
+    height: var(--card-height);
+    width: var(--card-width);
+
+    background: url(image/paper.png);
+    border: 0.4mm solid #000;
+
+    h2 {
+      margin: 0mm 2mm;
+      font-feature-settings: 'palt';
+      font-family: 'heavy';
+      font-size: 5.5mm;
+      line-height: 8mm;
+    }
+
+    p {
+      margin: 0mm 2mm;
+      font-feature-settings: 'palt';
+      font-family: 'mincho';
+      font-size: 16q;
+      line-height: 20q;
+      text-indent: 1em;
+    }
+
+  }
+
+}
