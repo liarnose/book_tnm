@@ -5,8 +5,14 @@
   "main": "book.html",
   "scripts": {
     "start": "savepdf --preview dest/index.html",
+    "start:main": "savepdf --preview dest/index.html",
+    "start:preact": "savepdf --preview dest/preact.html",
+    "start:card": "savepdf --preview dest/card.html",
     "build:theme": "node script/build-theme.js",
     "build:text": "node script/build-text.js",
+    "build:pdf:main": "savepdf dest/index.html",
+    "build:pdf:preact": "savepdf dest/preact.html",
+    "build:pdf:card": "savepdf dest/card.html",
     "watch:theme": "node script/watch-theme.js",
     "watch:text": "node script/watch-text.js"
   },
