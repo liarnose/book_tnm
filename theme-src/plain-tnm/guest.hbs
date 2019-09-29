@@ -1,0 +1,35 @@
+<div class="guest-stat">
+  <h3>{{name}}</h3>
+  <p class="gothic no-indent">{{style}}</p>
+  <h5 class="gothic">▼神業</h5>
+  <div class="guest-row">
+    {{#each kamiwaza}}
+      <p class="gothic no-indent">{{#if used}}■{{else}}□{{/if}}{{name}}</p>
+    {{/each}}
+  </div>
+  <h5 class="gothic">▼能力値</h5>
+  <div class="guest-row">
+    <p class="gothic no-indent">理性：{{risei}}</p>
+    <p class="gothic no-indent">感情：{{kanjou}}</p>
+  </div>
+  <div class="guest-row">
+    <p class="gothic no-indent">生命：{{seimei}}</p>
+    <p class="gothic no-indent">外界：{{gaikai}}</p>
+  </div>
+  <div class="guest-row">
+    <p class="gothic no-indent">CS：{{CS}}</p>
+    <p class="gothic no-indent">AR：{{AR}}</p>
+  </div>
+  <h5 class="gothic">▼技能</h5>
+  {{#each skill}}
+    <div class="guest-skill">
+      <p class="gothic no-indent">{{name}}</p>
+      <div class="guest-chain"></div>
+      <p class="gothic no-indent">{{suit}}</p>
+    </div>
+  {{/each}}
+  <h5 class="gothic">▼アウトフィット</h5>
+  {{#each outfit}}
+    <p class="gothic no-indent">{{this}}</p>
+  {{/each}}
+</div>
